@@ -6,14 +6,16 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListarComponent } from './components/listar/listar.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
-import { MutanteService } from './services/mutante.service' ;
+import { GraficoComponent } from './components/grafico/grafico.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ListarComponent,
-    FormularioComponent
+    FormularioComponent,
+    GraficoComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +23,7 @@ import { MutanteService } from './services/mutante.service' ;
 	HttpClientModule
   ],
   providers: [
-    MutanteService
+    
   ],
   bootstrap: [AppComponent]
 })
