@@ -7,7 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ListarComponent } from './components/listar/listar.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { GraficoComponent } from './components/grafico/grafico.component';
-
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { GraficoComponent } from './components/grafico/grafico.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-	HttpClientModule
+  HttpClientModule,
+  ChartsModule
   ],
   providers: [
     
