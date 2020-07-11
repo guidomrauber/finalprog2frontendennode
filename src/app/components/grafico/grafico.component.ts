@@ -25,7 +25,7 @@ public pieChartOptions: ChartOptions = {
   }
 };
 public pieChartLabels: Label[] = [['mutantes'], ['no mutantes']];
-public pieChartData: number[] = [300, 500];
+public pieChartData: number[] = [rows[0].mutante, rows[1].mutante];
 public pieChartType: ChartType = 'pie';
 public pieChartLegend = true;
 public pieChartPlugins = [pluginDataLabels];

@@ -1,3 +1,8 @@
+
+
+
+
+
 var myCanvas = document.getElementById("myCanvas");
  
 myCanvas.width = 300;
@@ -43,9 +48,10 @@ function drawPieSlice(ctx,centerX, centerY, radius, startAngle, endAngle, color 
     ctx.fill();
  
 }
+
 var myVinyls = {
  
-    "MUTANTE": 10,
+    "MUTANTE": 1,
  
     "NO MUTANTE": 14
  
