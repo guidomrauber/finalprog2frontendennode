@@ -13,19 +13,9 @@ export class MutanteService {
     return this.http.get(`${this.API_URI}/LISTADO`);
   }
 
-  getGame(id: string) {
-    return this.http.get(`${this.API_URI}/LISTADO/${id}`);
+  public paises(page: number, size: number, order: string, asc: boolean): Observable<any> {
+    return this.http.get<any>(this.API_URI + `page=${page}&size=${size}&order=${order}&asc=${asc}`);
   }
 
-  deleteGame(id: string) {
-    return this.http.delete(`${this.API_URI}/LISTADO/${id}`);
-  }
-
-  saveGame(game: Game) {
-    return this.http.post(`${this.API_URI}/LISTADO`, game);
-  }
-
-  updateGame(id: string|number, updatedGame: Game): Observable<Game> {
-    return this.http.put(`${this.API_URI}/LISTADO/${id}`, updatedGame);
-  }
+  
 }

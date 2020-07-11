@@ -4,13 +4,13 @@
     <thead>
       <tr>
         <th scope="col" (click)="setOrder('id')">ID</th>
-        <th scope="col" (click)="setOrder('nombre')">DNA</th>
-        <th scope="col" (click)="setOrder('capital')">CONDICION</th>
+        <th scope="col" (click)="setOrder('dna')">DNA</th>
+        <th scope="col" (click)="setOrder('condicion')">CONDICION</th>
         <th scope="col"><i class="fas fa-sort" (click)="sort()"></i></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let mutante of mutante">
+      <tr *ngFor="let mutante of mutantes">
         <th>{{mutante.id}}</th>
         <td>{{mutante.dna}}</td>
         <td>{{mutante.condicion}}</td>
