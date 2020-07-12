@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MutanteService {
-  API_URI = 'http://localhost:3000/';
+  API_URI = 'http://localhost:3000';
   constructor(private http: HttpClient) { }
 
   getGames() {
