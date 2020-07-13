@@ -10,7 +10,7 @@ export class MutanteService {
   constructor(private http: HttpClient) { }
 
   getGames() {
-    return this.http.get(`${this.API_URI}/LISTADO`);
+    return this.http.get(`${this.API_URI}`);
   }
 
   public paises(page: number, size: number, order: string, asc: boolean): Observable<any> {
