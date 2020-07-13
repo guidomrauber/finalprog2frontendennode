@@ -10,7 +10,7 @@ import { MutanteService } from '../../services/mutante.service';
 export class ListarComponent implements OnInit {
   
 
-games: any = [];
+mutantes: any = [];
 
   constructor(private mutanteService: MutanteService) { }
 
@@ -20,9 +20,8 @@ games: any = [];
 
   getGames() {
     this.mutanteService.getGames()
-      .subscribe(
-        res => {
-          this.games = res;
+      .subscribe(res => {
+          this.mutantes = res;
         },
         err => console.error(err)
       );
