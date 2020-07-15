@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MutanteService {
-  API_URI = 'http://localhost:3000';
+  API_URI = 'http://localhost:3000/api';
   constructor(private http: HttpClient) { }
 
   getGames() {
-    return this.http.get(`${this.API_URI}`);
+    return this.http.get(`${this.API_URI}/mutante`);
   }
 
   public paises(page: number, size: number, order: string, asc: boolean): Observable<any> {
