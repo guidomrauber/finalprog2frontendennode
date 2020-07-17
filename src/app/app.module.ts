@@ -10,6 +10,8 @@ import { GraficoComponent } from './components/grafico/grafico.component';
 import { ChartsModule } from 'ng2-charts';
 import { GraficoService } from './services/grafico.service';
 import { FormsModule }   from '@angular/forms';
+import { FormularioService } from './services/formulario.service';
+import { AgregarService } from './services/agregar.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { FormsModule }   from '@angular/forms';
   ChartsModule,
   FormsModule
   ],
-  providers: [GraficoService],
+  providers: [GraficoService,FormularioService,AgregarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
