@@ -2,12 +2,35 @@ import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import { GraficoService } from '../../services/grafico.service';
+
 @Component({
   selector: 'app-grafico',
   templateUrl: './grafico.component.html',
   styleUrls: ['./grafico.component.css']
 })
 export class GraficoComponent implements OnInit {
+
+
+mutantes2: any = [];
+
+
+constructor(private graficoService: GraficoService) { }
+
+ngOnInit() {
+  this.getGames();
+}
+getGames() {
+  this.graficoService.getGames()
+    .subscribe(res => {
+        this.mutantes2 = res;
+        
+      },
+      err => console.error(err)
+    );
+}
+ mut: number = this.mutantes2[0];
+ 
 
 // Pie
 public pieChartOptions: ChartOptions = {
@@ -25,7 +48,7 @@ public pieChartOptions: ChartOptions = {
   }
 };
 public pieChartLabels: Label[] = [['mutantes'], ['no mutantes']];
-public pieChartData: number[] = [14, 12];
+public pieChartData: number[] = [this.mut,0];
 public pieChartType: ChartType = 'pie';
 public pieChartLegend = true;
 public pieChartPlugins = [pluginDataLabels];
@@ -34,12 +57,6 @@ public pieChartColors = [
     backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,0,255,0.3)'],
   },
 ];
-
-constructor() { }
-
-ngOnInit() {
-}
-
 // events
 public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
   console.log(event, active);

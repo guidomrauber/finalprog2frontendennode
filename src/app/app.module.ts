@@ -8,6 +8,8 @@ import { ListarComponent } from './components/listar/listar.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { GraficoComponent } from './components/grafico/grafico.component';
 import { ChartsModule } from 'ng2-charts';
+import { GraficoService } from './services/grafico.service';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,11 +23,10 @@ import { ChartsModule } from 'ng2-charts';
     BrowserModule,
     AppRoutingModule,
   HttpClientModule,
-  ChartsModule
+  ChartsModule,
+  FormsModule
   ],
-  providers: [
-    
-  ],
+  providers: [GraficoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,46 @@
+<div style="text-align:center">
+    <h1>
+       COMPROBADOR DE MUTANTE
+    </h1>
+    <img width="100" src="https://unprogramador.com/wp-content/uploads/2017/10/cropped-iconprogramador2.png">
+</div>
+<section>
+
+
+    <div class="mitad">
+        <div class="peticiones">
+            <h2>COMPROBAR INGRESE 6 GRUPOS DE 6 SEPARADOS CON COMA ENTRE ACTG</h2>
+            <form (ngSubmit)="onSubmit(1);" #peticionForm="ngForm">
+                <input type="text" placeholder="DNA" #title name="title" [(ngModel)]="peticion.title" required />
+                <button [disabled]="!peticionForm.form.valid">Post</button>
+            </form>
+
+        </div>
+        <div class="peticiones">
+            <h2>GRABAR DATOS EN LA BASE</h2>
+            <form (ngSubmit)="onSubmit(1);" #peticionForm="ngForm">
+                <input type="text" placeholder="DNA" #title name="title" [(ngModel)]="peticion.title" required />
+                <input type="text" placeholder="CONDICION" #author name="author" [(ngModel)]="peticion.author" required/>
+                <button [disabled]="!peticionForm.form.valid">Post</button>
+            </form>
+
+        </div>
+        <div class="peticiones">
+            <h2>Peticion Get (todos)</h2>
+            <button (click)="getPeticion()">Get</button>
+        </div>
+
+    </div>
+    <div class="mitad result">
+        <h3>Resultado</h3>
+        <div *ngFor="let resp of resultado ">
+            <p>id: {{ resp.id }}</p>
+            <p>Title: {{ resp.title }}</p>
+            <p>Author: {{ resp.author }}</p>
+            <hr>
+        </div>
+
+
+    </div>
+
+</section>
