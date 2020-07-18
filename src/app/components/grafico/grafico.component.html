@@ -1,50 +1,11 @@
-<div class="container">
-  <h2 class="text-center">MUTANTE</h2>
-  <table class="table table-dark text-center">
-    <thead>
-      <tr>
-        <th scope="col" (click)="setOrder('id')">total</th>
-        
-        <th scope="col"><i class="fas fa-sort" (click)="sort()"></i></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let mutante2 of mutantes">
-        <td>{{mutantes2.total}}</td>
-          </tr>
-      <tr>
-        <td><i class="fas fa-angle-double-left fa-2x" (click)="rewind()"></i></td>
-        <td colspan="2">
-          <span *ngFor="let p of totalPages; let i = index">
-            <a style="cursor: pointer;" (click)="setPage(i)"
-            [ngClass]="{'text-primary': i === page }">{{ i+1 }}&nbsp;&nbsp;&nbsp;</a>
-          </span>
-        </td>
-        <td><i class="fas fa-angle-double-right fa-2x" (click)="forward()"></i></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<div>
-    <div>
-      <div class="chart">
-        <canvas baseChart
+<div *ngIf="pieChartLabels.length > 0" style="display: block">
+  <canvas baseChart
           [data]="pieChartData"
           [labels]="pieChartLabels"
           [chartType]="pieChartType"
-          [options]="pieChartOptions"
-          [plugins]="pieChartPlugins"
-          [colors]="pieChartColors"
-          [legend]="pieChartLegend">
+          [options]="chartOptions"
+      [legend]="true"
+      (chartClick)="onChartClick($event)">
+ 
         </canvas>
-      </div>
-    </div>
-  </div>
-  <div>
-    <button mat-button mat-raised-button color="primary" (click)="pieChartLegend=!pieChartLegend">Toggle Legend</button>
-    <button mat-button mat-raised-button color="primary" (click)="changeLabels()">Change Labels</button>
-    <button mat-button mat-raised-button color="primary" (click)="addSlice()">Add Slice</button>
-    <button mat-button mat-raised-button color="primary" (click)="removeSlice()">Remove Slice</button>
-    <button mat-button mat-raised-button color="primary" (click)="changeLegendPosition()">Change Legend Position</button>
-  </div>
+</div>

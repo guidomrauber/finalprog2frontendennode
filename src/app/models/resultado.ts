@@ -1,4 +1,4 @@
 export class ResponseG{
     
-    public author:boolean;
+    public mutante:boolean;
 }

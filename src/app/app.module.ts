@@ -8,11 +8,11 @@ import { ListarComponent } from './components/listar/listar.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { GraficoComponent } from './components/grafico/grafico.component';
 import { ChartsModule } from 'ng2-charts';
-import { GraficoService } from './services/grafico.service';
 import { FormsModule }   from '@angular/forms';
 import { FormularioService } from './services/formulario.service';
 import { AgregarService } from './services/agregar.service';
-
+import { GoogleChartsModule } from 'angular-google-charts';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +26,10 @@ import { AgregarService } from './services/agregar.service';
     AppRoutingModule,
   HttpClientModule,
   ChartsModule,
+  GoogleChartsModule,
   FormsModule
   ],
-  providers: [GraficoService,FormularioService,AgregarService],
+  providers: [FormularioService,AgregarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

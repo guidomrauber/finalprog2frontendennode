@@ -13,9 +13,7 @@ export class MutanteService {
     return this.http.get(`${this.API_URI}/mutante`);
   }
 
-  public paises(page: number, size: number, order: string, asc: boolean): Observable<any> {
-    return this.http.get<any>(this.API_URI + `page=${page}&size=${size}&order=${order}&asc=${asc}`);
-  }
+  
 
   
 }
