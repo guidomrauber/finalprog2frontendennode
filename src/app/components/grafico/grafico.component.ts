@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GraficoService } from '../../services/grafico.service';
-import { Game2 } from '../../models/grafico';
+import { ResponseG } from '../../models/grafico';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
@@ -17,7 +17,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 export class GraficoComponent implements OnInit {
 public game2json: Game2[];
 public pieChartLabels = ['mutante', 'no mutante'];
-public pieChartData = [1,1]; 
+
   public pieChartType = 'pie';
 
   kk: any = [];
@@ -31,10 +31,10 @@ public pieChartData = [1,1];
         },
         err => console.error(err)
       );
-                console.log(this.game2json);
+                console.log();
 
               //START: put data in Bar Chart
-                  
+                  public pieChartData = kk.total; 
             };
             
   }

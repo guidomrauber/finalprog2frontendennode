@@ -1,39 +1,41 @@
+<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
     <h1>
        COMPROBADOR DE MUTANTE
     </h1>
-    <img width="200" src="https://unprogramador.com/wp-content/uploads/2017/10/cropped-iconprogramador2.png">
+    <img width="100" src="https://unprogramador.com/wp-content/uploads/2017/10/cropped-iconprogramador2.png">
 </div>
 
 
 
     <div class="mitad">
         <div class="peticiones">
-            <h4>COMPROBADOR INGRESE 6 LETRAS ENTRE A-C-T-G EN 6 GRUPOS SEPARADOS POR COMA </h4>
-            <form>
-                <input type="text" placeholder="DNA" />
-                <button>ENVIAR</button>
+            <h2>COMPROBAR INGRESE 6 GRUPOS DE 6 SEPARADOS CON COMA ENTRE ACTG</h2>
+            <form (ngSubmit)="onSubmit(1);" #formularioForm="ngForm">
+                <input type="text" placeholder="DNA" #title name="title" [(ngModel)]="texten.dna2[]" required />
+                <button [disabled]="!formularioForm.form.valid">Post</button>
             </form>
 
         </div>
         <div class="peticiones">
-            <h2>GRABAR </h2>
-            <form>
-                <input type="text" placeholder="ADN" />
-                <input type="text" placeholder="CONDICION" />
-                <button>Post</button>
+            <h2>GRABAR DATOS EN LA BASE</h2>
+            <form (ngSubmit)="onSubmit(2);" #peticionForm="ngForm">
+                <input type="text" placeholder="DNA" #title name="title" [(ngModel)]="peticion.dna" required />
+                <input type="text" placeholder="CONDICION" #author name="author" [(ngModel)]="peticion.condicion" required/>
+                <button [disabled]="!peticionForm.form.valid">Post</button>
             </form>
 
         </div>
-        <div class="peticiones">
-            <h2>Peticion Get (todos)</h2>
-            <button (click)="getPeticion()">Get</button>
-        </div>
+        
+
     </div>
     <div class="mitad result">
         <h3>Resultado</h3>
         <div *ngFor="let resp of resultado ">
-            <p>mutante:{{ resp.mutante }}</p>
-            
+            <p>Respuesta: {{ resp.text }}</p>
+            <hr>
+        </div>
+
+
     </div>
 

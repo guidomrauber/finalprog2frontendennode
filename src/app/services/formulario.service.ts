@@ -1,18 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
-import { comprobador} from '../models/comprobador';
-import { ResponseG } from '../models/resultado';
+import {ResponseG} from '../Model/responseG';
 import { Game } from '../models/mutante';
+import { TextEnvio } from '../Model/peticionEnvio';
 @Injectable({
   providedIn: 'root'
 })
 export class FormularioService {
 private url: string = "http://localhost:3000/api/mutant";
+  private url2: string = "http://localhost:3000/api/agregar";
   private ArrayG: Array<ResponseG>;
-  constructor(private http: HttpClient) { }
-  postRespuesta(_body: comprobador): Observable<ResponseG> {
+  constructor( private http: HttpClient) { }
+
+  postRespuesta(_body: TextEnvio): Observable<ResponseG> {
 
     return this.http.post<ResponseG>(this.url, _body);
   }
+  postRespuesta(_body: Game): Observable<ResponseG> {
+
+    return this.http.post<ResponseG>(this.url2, _body);
+  }
+  
+  putRespuesta(_id: number, _body: PeticionEnvio): Observable<ResponseG> {
+    let urlcom = this.url + "/" + _id;
+    return this.http.put<ResponseG>(urlcom, _body);
+  }
+
 }

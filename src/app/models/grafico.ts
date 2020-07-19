@@ -1,5 +1,8 @@
-export class Game2 {
+import { Title } from '@angular/platform-browser';
+
+export class ResponseG {
     
-    condicion? : string;
-    total? : number
+    condicion : string,
+	total: number 
+    
 };

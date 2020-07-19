@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { comprobador} from '../../models/comprobador';
-import { ResponseG } from '../../models/resultado';
+import { PeticionEnvio} from '../../Model/peticionEnvio';
+import { TextEnvio } from './Model/peticionEnvio';
+import { ResponseG } from '../../Model/resultado';
 import { Game } from '../../models/mutante';
 import { FormularioService } from '../../services/formulario.service';
 import { AgregarService } from '../../services/agregar.service';
@@ -10,14 +11,53 @@ import { AgregarService } from '../../services/agregar.service';
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent implements OnInit {
-peticion = new comprobador();
-  
-  
+texten = new TextEnvio();
+  peticion = new PeticionEnvio();
   resultado: Array<ResponseG>;
   id: number = 1;
-  constructor() { }
+  constructor(private http: FormularioService) { }
 
-  ngOnInit() {
+  onSubmit(tipo: number) {
+    switch ( tipo ) {
+      case 1:
+      this.postSentServices(this.Texten);
+      break;
+      case 2:
+      if(this.peticion.dna == null && this.peticion.condicion == null){
+        alert("llene todo los campos de put");
+
+      }else{
+        this.putSentServices(this.peticion, this.id);
+      }
+      break;
+    }
+}
+onchange($event) {
+  this.id = $event.target.value;
+
+}
+
+
+  
   }
 
+  postSentServices(body: TextEnvio) {
+    this.phttp.postRespuesta(body).subscribe(
+      data => {
+        this.resultado = [];
+        this.resultado.push(data);
+      },
+      err => {}
+    );
+
+  }
+  putSentServices(body: PeticionEnvio) {
+    this.phttp.putRespuesta(body).subscribe(
+      data => {
+        this.resultado = [];
+        this.resultado.push(data);
+      },
+      err => {}
+    );
+  }
 }
