@@ -8,8 +8,11 @@ import { Game } from '../models/mutante';
 })
 export class GraficoService {
    API_URI = 'http://localhost:3000/api';
+   
   constructor(private http: HttpClient) { }
-  getGames(_body: Game): Observable<ResponseG> {
-    return this.http.post<ResponseG>(`${this.API_URI}/stats`, _body);
-  }
+  getGames(){
+    return this.http.get(`${this.API_URI}/stats`);
+  
 }
+}
+

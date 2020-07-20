@@ -4,5 +4,5 @@ export class PeticionEnvio {
 }
 
 export class TextEnvio {
-	public dna2[]: String;
+	public dna2: String;
 }

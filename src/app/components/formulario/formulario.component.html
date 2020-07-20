@@ -12,7 +12,7 @@
         <div class="peticiones">
             <h2>COMPROBAR INGRESE 6 GRUPOS DE 6 SEPARADOS CON COMA ENTRE ACTG</h2>
             <form (ngSubmit)="onSubmit(1);" #formularioForm="ngForm">
-                <input type="text" placeholder="DNA" #title name="title" [(ngModel)]="texten.dna2[]" required />
+                <input type="text" placeholder="DNA" #title name="title" [(ngModel)]="texten.dna2" required />
                 <button [disabled]="!formularioForm.form.valid">Post</button>
             </form>
 
@@ -20,8 +20,8 @@
         <div class="peticiones">
             <h2>GRABAR DATOS EN LA BASE</h2>
             <form (ngSubmit)="onSubmit(2);" #peticionForm="ngForm">
-                <input type="text" placeholder="DNA" #title name="title" [(ngModel)]="peticion.dna" required />
-                <input type="text" placeholder="CONDICION" #author name="author" [(ngModel)]="peticion.condicion" required/>
+                <input type="text" placeholder="DNA" #title name="dna" [(ngModel)]="peticion.dna" required />
+                <input type="text" placeholder="CONDICION" #author name="condicion" [(ngModel)]="peticion.condicion" required/>
                 <button [disabled]="!peticionForm.form.valid">Post</button>
             </form>
 

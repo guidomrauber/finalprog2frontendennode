@@ -8,6 +8,7 @@ import 'rxjs/add/observable/empty';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import { Game } from 'src/app/models/mutante';
 
 @Component({
   selector: 'app-grafico',
@@ -15,11 +16,11 @@ import 'rxjs/add/operator/distinctUntilChanged';
   styleUrls: ['./grafico.component.css']
 })
 export class GraficoComponent implements OnInit {
-public game2json: Game2[];
+public game2json: ResponseG[];
 public pieChartLabels = ['mutante', 'no mutante'];
-
+public pieChartData : number[];
   public pieChartType = 'pie';
-
+  
   kk: any = [];
 
   constructor(private  graficoService: GraficoService) { }
@@ -28,13 +29,16 @@ public pieChartLabels = ['mutante', 'no mutante'];
 	  this.graficoService.getGames()
       .subscribe(res => {
           this.kk = res;
+          const kkk = res[0].total;
+          const jjj = res[1].total;
+          this.pieChartData =[res[0].total,res[1].total];
         },
         err => console.error(err)
       );
-                console.log();
+                console.log(this.kk[0].total);
 
               //START: put data in Bar Chart
-                  public pieChartData = kk.total; 
+                  
             };
             
   }

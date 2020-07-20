@@ -8,7 +8,7 @@ import { TextEnvio } from '../Model/peticionEnvio';
   providedIn: 'root'
 })
 export class FormularioService {
-private url: string = "http://localhost:3000/api/mutant";
+private url: string = "http://localhost:3000/api";
   private url2: string = "http://localhost:3000/api/agregar";
   private ArrayG: Array<ResponseG>;
   constructor( private http: HttpClient) { }
@@ -17,14 +17,11 @@ private url: string = "http://localhost:3000/api/mutant";
 
     return this.http.post<ResponseG>(this.url, _body);
   }
-  postRespuesta(_body: Game): Observable<ResponseG> {
+  postRespuesta2(_body: Game): Observable<ResponseG> {
 
     return this.http.post<ResponseG>(this.url2, _body);
   }
   
-  putRespuesta(_id: number, _body: PeticionEnvio): Observable<ResponseG> {
-    let urlcom = this.url + "/" + _id;
-    return this.http.put<ResponseG>(urlcom, _body);
-  }
+  
 
 }
