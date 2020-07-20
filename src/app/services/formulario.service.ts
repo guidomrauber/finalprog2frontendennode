@@ -8,7 +8,7 @@ import { TextEnvio } from '../Model/peticionEnvio';
   providedIn: 'root'
 })
 export class FormularioService {
-private url: string = "http://localhost:3000/api";
+private url: string = "http://localhost:3000/api/mutant";
   private url2: string = "http://localhost:3000/api/agregar";
   private ArrayG: Array<ResponseG>;
   constructor( private http: HttpClient) { }
